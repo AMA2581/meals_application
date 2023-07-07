@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meals_application/android/screens/categories.dart';
+import 'package:meals_application/ios/screens/categories_ios.dart';
 
 // if (Platform.isAndroid){
 // final theme = ThemeData(
@@ -23,34 +25,46 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isAndroid){
-    return MaterialApp(
-      theme: _theme(),
-      home: // Todo ...,
-    );} else {
+    if (Platform.isIOS) {
+      return MaterialApp(
+        theme: _theme(),
+        home: CategoriesScreen(),
+      );
+    } else {
       return CupertinoApp(
-        theme: ,
+        theme: _cupertinoTheme(),
+        home: CategoriesScreenIOS(),
       );
     }
   }
 }
 
-ThemeData _theme(){
+ThemeData _theme() {
+  final theme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.dark,
+      seedColor: const Color.fromARGB(255, 131, 57, 0),
+    ),
+    textTheme: GoogleFonts.latoTextTheme(),
+  );
 
-final theme = ThemeData(
-  useMaterial3: true,
-  colorScheme: ColorScheme.fromSeed(
-    brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(255, 131, 57, 0),
-  ),
-  textTheme: GoogleFonts.latoTextTheme(),
-);
-
-return theme;
+  return theme;
 }
 
-CupertinoThemeData _cupertinoTheme(){
-  final cupertinoTheme = CupertinoThemeData(
-    primaryColor: 
+CupertinoThemeData _cupertinoTheme() {
+  const cupertinoTheme = CupertinoThemeData(
+    primaryColor: CupertinoDynamicColor(
+      color: CupertinoColors.systemBlue,
+      darkColor: CupertinoColors.white,
+      highContrastColor: CupertinoColors.systemBlue,
+      darkHighContrastColor: CupertinoColors.white,
+      elevatedColor: CupertinoColors.systemBlue,
+      darkElevatedColor: CupertinoColors.white,
+      highContrastElevatedColor: CupertinoColors.systemBlue,
+      darkHighContrastElevatedColor: CupertinoColors.white,
+    ),
   );
+
+  return cupertinoTheme;
 }
