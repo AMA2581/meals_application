@@ -7,6 +7,7 @@ import 'package:meals_application/android/screens/categories.dart';
 import 'package:meals_application/android/screens/meals.dart';
 import 'package:meals_application/data/dummy_data.dart';
 import 'package:meals_application/ios/screens/categories_ios.dart';
+import 'package:meals_application/ios/screens/meals_ios.dart';
 
 // if (Platform.isAndroid){
 // final theme = ThemeData(
@@ -27,11 +28,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isAndroid) {
+    if (Platform.isIOS) {
       return CupertinoApp(
         debugShowCheckedModeBanner: false,
         theme: _cupertinoTheme(),
-        home: CategoriesScreenIOS(),
+        home: MealsScreenIOS(title: 'some category...', meals: dummyMeals),
       );
     } else {
       return MaterialApp(
