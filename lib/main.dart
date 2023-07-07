@@ -26,14 +26,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
-      return MaterialApp(
-        theme: _theme(),
-        home: CategoriesScreen(),
-      );
-    } else {
       return CupertinoApp(
+        debugShowCheckedModeBanner: false,
         theme: _cupertinoTheme(),
         home: CategoriesScreenIOS(),
+      );
+    } else {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: _theme(),
+        home: CategoriesScreen(),
       );
     }
   }
