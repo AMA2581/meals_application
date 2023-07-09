@@ -4,10 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_application/android/screens/categories.dart';
-import 'package:meals_application/android/screens/meals.dart';
-import 'package:meals_application/data/dummy_data.dart';
 import 'package:meals_application/ios/screens/categories_ios.dart';
-import 'package:meals_application/ios/screens/meals_ios.dart';
 
 // if (Platform.isAndroid){
 // final theme = ThemeData(
@@ -32,13 +29,13 @@ class App extends StatelessWidget {
       return CupertinoApp(
         debugShowCheckedModeBanner: false,
         theme: _cupertinoTheme(),
-        home: MealsScreenIOS(title: 'some category...', meals: dummyMeals),
+        home: const CategoriesScreenIOS(),
       );
     } else {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: _theme(),
-        home: MealsScreen(title: 'some category...', meals: dummyMeals),
+        home: const CategoriesScreen(),
       );
     }
   }

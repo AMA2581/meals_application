@@ -3,16 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:meals_application/models/category.dart';
 
 class CategoryGridItemIOS extends StatelessWidget {
-  const CategoryGridItemIOS({super.key, required this.category});
+  const CategoryGridItemIOS({
+    super.key,
+    required this.category,
+    required this.onSelectCategory,
+  });
 
   final Category category;
+  final void Function() onSelectCategory;
 
   @override
   Widget build(BuildContext context) {
     // print(
     //     'Platform brightness is ${MediaQuery.of(context).platformBrightness}');
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        onSelectCategory();
+      },
       // splashColor: Theme.of(context).primaryColor,
       // borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -32,7 +39,7 @@ class CategoryGridItemIOS extends StatelessWidget {
         child: Text(
           category.title,
           style: TextStyle(
-            fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
               color:
                   MediaQuery.of(context).platformBrightness == Brightness.light
                       ? Colors.black

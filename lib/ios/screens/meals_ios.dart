@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meals_application/ios/screens/widgets/meal_item_ios.dart';
 import 'package:meals_application/models/meal.dart';
 
 class MealsScreenIOS extends StatelessWidget {
@@ -16,9 +17,7 @@ class MealsScreenIOS extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget content = ListView.builder(
       itemCount: meals.length,
-      itemBuilder: (ctx, index) => Text(
-        meals[index].title,
-      ),
+      itemBuilder: (ctx, index) => MealItemIOS(meal: meals[index]),
     );
 
     if (meals.isEmpty) {
