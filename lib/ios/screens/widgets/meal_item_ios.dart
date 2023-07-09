@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meals_application/ios/screens/widgets/meal_item_trait_ios.dart';
 import 'package:meals_application/models/meal.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -10,6 +11,16 @@ class MealItemIOS extends StatelessWidget {
   });
 
   final Meal meal;
+
+  String get complexityText {
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
+  }
+
+  String get affordabilityText {
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +36,7 @@ class MealItemIOS extends StatelessWidget {
               placeholder: MemoryImage(kTransparentImage),
               image: NetworkImage(meal.imageUrl),
               fit: BoxFit.cover,
-              height: 100,
+              height: 130,
               width: double.infinity,
             ),
             Positioned(
@@ -37,7 +48,7 @@ class MealItemIOS extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      height: 100,
+                      height: 130,
                       decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.centerLeft,
@@ -68,11 +79,25 @@ class MealItemIOS extends StatelessWidget {
                               color: CupertinoColors.white,
                             ),
                           ),
-                          const SizedBox(height: 3),
-                          Text(
-                            'placeholder',
-                            style:
-                                const TextStyle(color: CupertinoColors.white),
+                          // const SizedBox(height: 3),
+                          const Spacer(),
+                          Column(
+                            children: [
+                              MealItemTraitIOS(
+                                icon: CupertinoIcons.alarm_fill,
+                                label: '${meal.duration} min',
+                              ),
+                              const SizedBox(height: 3),
+                              MealItemTraitIOS(
+                                icon: CupertinoIcons.briefcase_fill,
+                                label: complexityText,
+                              ),
+                              const SizedBox(height: 3),
+                              MealItemTraitIOS(
+                                icon: CupertinoIcons.money_dollar_circle_fill,
+                                label: affordabilityText,
+                              ),
+                            ],
                           ),
                         ],
                       ),
