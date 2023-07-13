@@ -15,7 +15,7 @@ class CategoriesScreenIOS extends StatelessWidget {
 
     Navigator.push(
       context,
-      MaterialPageRoute(
+      CupertinoPageRoute(
         builder: (ctx) => MealsScreenIOS(
           title: category.title,
           meals: filteredMeals,

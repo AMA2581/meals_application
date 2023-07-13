@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meals_application/ios/screens/meals_details_ios.dart';
 import 'package:meals_application/ios/screens/widgets/meal_item_trait_ios.dart';
 import 'package:meals_application/models/meal.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -29,7 +30,16 @@ class MealItemIOS extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.hardEdge,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (ctx) => MealsDetailsScreenIOS(
+                meal: meal,
+              ),
+            ),
+          );
+        },
         child: Stack(
           children: [
             FadeInImage(

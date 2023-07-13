@@ -25,7 +25,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isIOS) {
+    if (Platform.isAndroid) {
       return CupertinoApp(
         debugShowCheckedModeBanner: false,
         theme: _cupertinoTheme(),

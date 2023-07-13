@@ -25,16 +25,16 @@ class MealsScreenIOS extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(CupertinoIcons.xmark_octagon_fill,
+            const Icon(CupertinoIcons.xmark_octagon_fill,
                 size: 50, color: CupertinoColors.inactiveGray),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'Uh oh ...',
               style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: CupertinoColors.inactiveGray,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               'Try selecting a different category!',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
