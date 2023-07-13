@@ -142,7 +142,7 @@ class MealsDetailsScreenIOS extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: MediaQuery.of(context).platformBrightness ==
@@ -150,7 +150,15 @@ class MealsDetailsScreenIOS extends StatelessWidget {
                     ? CupertinoColors.lightBackgroundGray
                     : CupertinoColors.darkBackgroundGray,
               ),
-              child: Text('placeholder'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final ingredient in meal.ingredients) Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2),
+                    child: Text(ingredient),
+                  ),
+                ],
+              ),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -164,7 +172,7 @@ class MealsDetailsScreenIOS extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: MediaQuery.of(context).platformBrightness ==
@@ -172,7 +180,15 @@ class MealsDetailsScreenIOS extends StatelessWidget {
                     ? CupertinoColors.lightBackgroundGray
                     : CupertinoColors.darkBackgroundGray,
               ),
-              child: Text('placeholder'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final step in meal.steps) Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: Text(step),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
