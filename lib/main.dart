@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meals_application/android/screens/categories.dart';
 import 'package:meals_application/android/screens/tabs.dart';
 import 'package:meals_application/ios/screens/categories_ios.dart';
 
