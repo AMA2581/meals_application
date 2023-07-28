@@ -5,10 +5,11 @@ import 'package:meals_application/android/screens/categories.dart';
 import 'package:meals_application/android/screens/filters.dart';
 import 'package:meals_application/android/screens/meals.dart';
 import 'package:meals_application/android/screens/widgets/main_drawer.dart';
-import 'package:meals_application/data/dummy_data.dart';
-import 'package:meals_application/models/meal.dart';
+// import 'package:meals_application/data/dummy_data.dart';
+// import 'package:meals_application/models/meal.dart';
 import 'package:meals_application/providers/meals_provider.dart';
 import 'package:meals_application/providers/favorites_provider.dart';
+import 'package:meals_application/providers/filters_provider.dart';
 
 const kInitialFilters = {
   Filter.glutenFree: false,
